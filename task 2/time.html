@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Timer</title>
+<style  type="text/css">
+body{
+  background-color: light blue;
+
+  background-image: url(time6.jpg);
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  backgroung-size: cover;
+}
+
+div{
+  
+  color: white;
+  font-size:20px;
+  text-align:center;
+}
+input[type=text],select{
+width: 10%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+
+}
+button{
+
+
+
+}
+p{
+padding-top:100px;
+text-align:center;
+}
+
+</style>
+
+<script type="text/javascript">
+i=300;
+var myVar;
+function onTimer() {
+
+var result = parseInt(i / 60) + ':' + i % 60; 
+  document.getElementById('mycounter').innerHTML = result;
+  i--;
+  if (i < 0) {
+    alert('Time is Up!');
+  }
+  else {
+    var myVar = setTimeout(onTimer, 1000);
+  }
+}
+function reset()
+{
+clearTimeout(myVar);
+var userInput = document.getElementById("userInput").value;
+    document.getElementById("demo").innerHTML = userInput;
+	 i=userInput*60;
+	 var result = parseInt(i / 60) + ':' + i % 60; 
+  document.getElementById('mycounter').innerHTML = result;
+  i--;
+  if (i < 0) {
+    alert('Time is Up!');
+  }
+  else {
+    var myVar = setTimeout(myVar,1000);
+  }
+	 
+}
+
+
+</script>
+</head>
+<body>
+<p id="demo"> </p>
+<p><input type="text" id="userInput">
+<button onclick="reset()">Reset</button>
+  <button onclick="onTimer()">Start</button></p>
+<div id="mycounter"></div>
+
+</body>
+
+
+</html>
